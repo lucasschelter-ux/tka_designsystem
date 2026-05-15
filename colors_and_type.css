@@ -1,0 +1,476 @@
+/* =========================================================
+   thekey.ACADEMY — Colors & Type Tokens
+   =========================================================
+   Source: Figma color & type styles (provided 2026-05-15)
+   Primary product surface: thekey.academy (German online
+   continuing-education platform — Weiterbildung + IHK).
+
+   Fonts: see /fonts/. Both body and display use **Roboto**
+   (Google Fonts) per brand. Numerics in Roboto Mono.
+   ========================================================= */
+
+/* ── Brand webfonts ──────────────────────────────────────
+   Local Roboto TTFs in /fonts/. The brand pack ships a
+   partial set (Thin 100, Black 900, plus italics 300/500/
+   700/800). Google Fonts CSS covers the gaps (Regular 400,
+   Medium 500, Bold 700) so layout never falls back to
+   system-ui.                                            */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono:wght@400;500&display=swap");
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("fonts/Roboto-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url("fonts/Roboto-ThinItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/Roboto-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Roboto-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/Roboto-MediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/Roboto-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/Roboto-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("fonts/Roboto-Black.ttf") format("truetype");
+}
+
+/* Roboto Condensed — full set available (300/400/500/700) */
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 200;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-ExtraLight.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 100;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-Thin.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-ThinItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-Light.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-Regular.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-Italic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-Bold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-BoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto Condensed";
+  font-style: italic;
+  font-weight: 900;
+  font-display: swap;
+  src: url("fonts/Roboto_Condensed-BlackItalic.ttf") format("truetype");
+}
+
+/* Roboto SemiCondensed — useful for tight headlines / wordmark */
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/Roboto_SemiCondensed-Medium.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url("fonts/Roboto_SemiCondensed-MediumItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/Roboto_SemiCondensed-ExtraBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  font-style: italic;
+  font-weight: 800;
+  font-display: swap;
+  src: url("fonts/Roboto_SemiCondensed-ExtraBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  font-style: italic;
+  font-weight: 600;
+  font-display: swap;
+  src: url("fonts/Roboto_SemiCondensed-SemiBoldItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  font-style: italic;
+  font-weight: 200;
+  font-display: swap;
+  src: url("fonts/Roboto_SemiCondensed-ExtraLightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url("fonts/Roboto_SemiCondensed-LightItalic.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Roboto SemiCondensed";
+  font-style: italic;
+  font-weight: 100;
+  font-display: swap;
+  src: url("fonts/Roboto_SemiCondensed-ThinItalic.ttf") format("truetype");
+}
+
+:root {
+  /* ── BRAND PALETTE ─────────────────────────────────────
+     "Brand" group in Figma — deep indigo to soft lavender. */
+  --tk-brand-900: #291371;   /* deep indigo, primary surfaces */
+  --tk-brand-700: #5327e6;   /* electric violet, accent / logo grad start */
+  --tk-brand-500: #7270cf;   /* muted lavender */
+  --tk-brand-100: #e6e5ef;   /* whisper lavender, surface tint */
+
+  /* ── BRAND SECONDARY — SIGNAL GREEN ───────────────────
+     "Signalgreen" 120 → 20. The CTA color on promo bands. */
+  --tk-green-120: #079e83;
+  --tk-green-100: #1bc699;
+  --tk-green-80:  #4ed4ad;
+  --tk-green-40:  #a9eccd;
+  --tk-green-20:  #d4f6e6;
+
+  /* ── SYSTEM SHADES (neutrals) ─────────────────────────
+     Walks white → near-black through cool greys. */
+  --tk-shade-0:   #ffffff;
+  --tk-shade-50:  #f5f6f7;
+  --tk-shade-100: #e9ebee;
+  --tk-shade-200: #d7dade;
+  --tk-shade-300: #a6aeb9;
+  --tk-shade-400: #758090;
+  --tk-shade-500: #3b495d;
+  --tk-shade-700: #0e1723;
+  --tk-shade-1000: #000000;
+
+  /* ── SYSTEM ACCENTS ───────────────────────────────────
+     Functional accents used sparingly across UI: success,
+     info, warning, error, plus tinted backgrounds. */
+  --tk-success:    #079e83;
+  --tk-success-bg: #a9f5d7;
+  --tk-success-bg-soft: #e5fcf3;
+
+  --tk-info:       #184276;
+  --tk-info-bg:    #c8ddf3;
+  --tk-info-bg-soft: #eef6fe;
+
+  --tk-warning:    #e0a827;
+  --tk-warning-2:  #fed430;
+  --tk-warning-bg: #fff6d6;
+  --tk-warning-bg-soft: #fffcef;
+
+  --tk-error:      #ea561c;
+  --tk-error-2:    #ff914d;
+  --tk-error-bg:   #fbddd2;
+  --tk-error-bg-soft: #fff2ed;
+
+  --tk-cyan:       #0cc0df;
+  --tk-cyan-soft:  #a5e4e4;
+  --tk-violet:     #8c52ff;
+  --tk-pink:       #dc99ef;
+  --tk-pink-soft:  #ffdaf9;
+  --tk-blue:       #2794fe;
+  --tk-blue-soft:  #a8d5ff;
+
+  /* ── SEMANTIC TOKENS ──────────────────────────────────
+     Use these in components — they map to brand vars and
+     can be re-themed (e.g. dark mode) without churn. */
+  --fg-1:        var(--tk-shade-700);   /* primary text */
+  --fg-2:        var(--tk-shade-500);   /* secondary text */
+  --fg-3:        var(--tk-shade-400);   /* tertiary / meta */
+  --fg-inverse:  var(--tk-shade-0);
+  --fg-brand:    var(--tk-brand-900);
+  --fg-accent:   var(--tk-brand-700);
+  --fg-success:  var(--tk-success);
+  --fg-error:    var(--tk-error);
+
+  --bg-page:     var(--tk-shade-0);
+  --bg-subtle:   var(--tk-shade-50);
+  --bg-elevated: var(--tk-shade-0);
+  --bg-brand:    var(--tk-brand-900);
+  --bg-brand-soft: var(--tk-brand-100);
+  --bg-accent:   var(--tk-brand-700);
+  --bg-promo:    var(--tk-brand-500);   /* lighter purple band */
+  --bg-success:  var(--tk-success-bg);
+
+  --border-1:    var(--tk-shade-100);
+  --border-2:    var(--tk-shade-200);
+  --border-strong: var(--tk-shade-300);
+
+  /* ── BRAND GRADIENT ───────────────────────────────────
+     Logo / hero gradient — violet → signal green.
+     Lifted directly from the academy logotype SVG. */
+  --tk-gradient-brand: linear-gradient(135deg,
+      #5327e6 0%,
+      #4c46da 27%,
+      #436bcb 48%,
+      #379fb7 72%,
+      #28e09d 98%,
+      #27e59b 100%);
+
+  --tk-gradient-promo: linear-gradient(135deg, #7270cf 0%, #8c7df0 100%);
+
+  /* ── RADII ───────────────────────────────────────────
+     The product leans on softly rounded surfaces — cards
+     ~16-20px, pills full, buttons 999px. */
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-pill: 999px;
+
+  /* ── SHADOWS ─────────────────────────────────────────
+     Subtle, cool-grey, no aggressive drop shadows. */
+  --shadow-xs: 0 1px 2px rgba(14, 23, 35, 0.04);
+  --shadow-sm: 0 2px 6px rgba(14, 23, 35, 0.06);
+  --shadow-md: 0 8px 24px rgba(14, 23, 35, 0.08);
+  --shadow-lg: 0 18px 48px rgba(41, 19, 113, 0.12);
+  --shadow-glow-green: 0 0 0 6px rgba(27, 198, 153, 0.18);
+  --shadow-glow-brand: 0 0 0 6px rgba(83, 39, 230, 0.16);
+
+  /* ── SPACING SCALE ───────────────────────────────────
+     8-pt scale with a 4-pt half-step. */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ── TYPOGRAPHY — FONT FAMILIES ──────────────────────
+     Main face is Roboto (per brand). Used for both display
+     and body — heavier weights for headlines, regular for
+     body. JetBrains-Mono fallback for code/numerics. */
+  --font-display: "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body:    "Roboto", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:    "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  /* Type scale — based on Figma "Schriftarten" list
+     (Titel / Untertitel / Überschrift / Zwischenüberschrift
+      / Kopfzeile für Abschnitt / Text / Zitat / Untertitel). */
+  --fs-display: 72px;   /* hero / Titel oversized */
+  --fs-h1:      48px;   /* Titel */
+  --fs-h2:      36px;   /* Untertitel */
+  --fs-h3:      28px;   /* Überschrift */
+  --fs-h4:      22px;   /* Zwischenüberschrift */
+  --fs-h5:      18px;   /* Kopfzeile für Abschnitt */
+  --fs-body:    16px;   /* Text */
+  --fs-small:   14px;   /* Untertitel small */
+  --fs-micro:   12px;   /* eyebrow / legal */
+
+  --lh-tight:   1.1;
+  --lh-snug:    1.25;
+  --lh-normal:  1.45;
+  --lh-relaxed: 1.6;
+
+  --tracking-tight: -0.02em;
+  --tracking-snug:  -0.01em;
+  --tracking-wide:  0.04em;
+  --tracking-widest: 0.14em;   /* "ACADEMY" wordmark */
+}
+
+/* ─── BASE TEXT STYLES ────────────────────────────────── */
+body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-1);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1, .tk-h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 900;
+  color: var(--fg-brand);
+  margin: 0;
+}
+
+h2, .tk-h2 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--tracking-tight);
+  font-weight: 700;
+  color: var(--fg-brand);
+  margin: 0;
+}
+
+h3, .tk-h3 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  line-height: var(--lh-snug);
+  font-weight: 700;
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h4, .tk-h4 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  font-weight: 700;
+  color: var(--fg-1);
+  margin: 0;
+}
+
+h5, .tk-h5 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h5);
+  line-height: var(--lh-snug);
+  font-weight: 700;
+  color: var(--fg-1);
+  margin: 0;
+}
+
+p, .tk-body {
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-2);
+  margin: 0;
+}
+
+.tk-small  { font-size: var(--fs-small); line-height: var(--lh-normal); color: var(--fg-2); }
+.tk-micro  { font-size: var(--fs-micro); line-height: var(--lh-normal); color: var(--fg-3); }
+
+.tk-eyebrow {
+  font-size: var(--fs-micro);
+  font-weight: 700;
+  letter-spacing: var(--tracking-widest);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+
+blockquote, .tk-quote {
+  font-family: var(--font-display);
+  font-size: var(--fs-h4);
+  line-height: var(--lh-snug);
+  font-style: italic;
+  color: var(--fg-1);
+  border-left: 3px solid var(--tk-brand-700);
+  padding-left: var(--space-5);
+  margin: 0;
+}
+
+code, .tk-code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-subtle);
+  padding: 2px 6px;
+  border-radius: var(--radius-xs);
+}
+
+a {
+  color: var(--fg-accent);
+  text-decoration: none;
+  transition: color 120ms ease, opacity 120ms ease;
+}
+a:hover { opacity: 0.78; }
