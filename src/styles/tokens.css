@@ -1,0 +1,134 @@
+/* =========================================================
+   thekey.ACADEMY — Design Tokens
+   ========================================================= */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,500;0,700;0,900;1,300;1,400;1,500;1,700&family=Roboto+Mono:wght@400;500&display=swap");
+
+:root {
+  /* Brand */
+  --tk-brand-900: #291371;
+  --tk-brand-700: #5327e6;
+  --tk-brand-500: #7270cf;
+  --tk-brand-100: #e6e5ef;
+
+  /* Signal Green */
+  --tk-green-120: #079e83;
+  --tk-green-100: #1bc699;
+  --tk-green-80:  #4ed4ad;
+  --tk-green-40:  #a9eccd;
+  --tk-green-20:  #d4f6e6;
+
+  /* Neutrals */
+  --tk-shade-0:    #ffffff;
+  --tk-shade-50:   #f5f6f7;
+  --tk-shade-100:  #e9ebee;
+  --tk-shade-200:  #d7dade;
+  --tk-shade-300:  #a6aeb9;
+  --tk-shade-400:  #758090;
+  --tk-shade-500:  #3b495d;
+  --tk-shade-700:  #0e1723;
+
+  /* System */
+  --tk-success:   #079e83;
+  --tk-info:      #184276;
+  --tk-warning:   #e0a827;
+  --tk-error:     #ea561c;
+
+  /* Semantic */
+  --fg-1:       var(--tk-shade-700);
+  --fg-2:       var(--tk-shade-500);
+  --fg-3:       var(--tk-shade-400);
+  --fg-inverse: var(--tk-shade-0);
+  --fg-brand:   var(--tk-brand-900);
+  --fg-accent:  var(--tk-brand-700);
+
+  --bg-page:    var(--tk-shade-0);
+  --bg-subtle:  var(--tk-shade-50);
+  --bg-brand:   var(--tk-brand-900);
+  --bg-promo:   var(--tk-brand-500);
+
+  --border-1:      var(--tk-shade-100);
+  --border-2:      var(--tk-shade-200);
+  --border-strong: var(--tk-shade-300);
+
+  /* Gradients */
+  --tk-gradient-brand: linear-gradient(135deg, #5327e6 0%, #4c46da 27%, #436bcb 48%, #379fb7 72%, #28e09d 98%, #27e59b 100%);
+  --tk-gradient-promo: linear-gradient(135deg, #7270cf 0%, #8c7df0 100%);
+
+  /* Radii */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --radius-pill: 999px;
+
+  /* Shadows */
+  --shadow-xs:         0 1px 2px rgba(14, 23, 35, 0.04);
+  --shadow-sm:         0 2px 6px rgba(14, 23, 35, 0.06);
+  --shadow-md:         0 8px 24px rgba(14, 23, 35, 0.08);
+  --shadow-lg:         0 18px 48px rgba(41, 19, 113, 0.12);
+  --shadow-glow-green: 0 0 0 6px rgba(27, 198, 153, 0.18);
+  --shadow-glow-brand: 0 0 0 6px rgba(83, 39, 230, 0.16);
+
+  /* Spacing */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* Typography */
+  --font-display: "Roboto", system-ui, -apple-system, sans-serif;
+  --font-body:    "Roboto", system-ui, -apple-system, sans-serif;
+  --font-mono:    "Roboto Mono", ui-monospace, monospace;
+
+  --fs-display: 72px;
+  --fs-h1:      48px;
+  --fs-h2:      36px;
+  --fs-h3:      28px;
+  --fs-h4:      22px;
+  --fs-h5:      18px;
+  --fs-body:    16px;
+  --fs-small:   14px;
+  --fs-micro:   12px;
+
+  --lh-tight:   1.1;
+  --lh-snug:    1.25;
+  --lh-normal:  1.45;
+  --lh-relaxed: 1.6;
+
+  --tracking-tight:   -0.02em;
+  --tracking-snug:    -0.01em;
+  --tracking-wide:     0.04em;
+  --tracking-widest:   0.14em;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+  color: var(--fg-1);
+  background: var(--bg-page);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  color: var(--fg-accent);
+  text-decoration: none;
+  transition: opacity 120ms ease;
+}
+a:hover { opacity: 0.78; }
