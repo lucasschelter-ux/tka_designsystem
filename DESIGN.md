@@ -145,7 +145,9 @@ thekey.  ACADEMY
 
 ### Verfügbare Gewichte (lokal)
 
-**Roboto:** 100 (Thin), 300 (Light), 400 (Regular), 500 (Medium), 700 (Bold), 800 (ExtraBold), 900 (Black) — je regulär + kursiv
+**Roboto:** 100 (Thin), 300 (Light), 400 (Regular), 500 (Medium), 700 (Bold) ~~800 (ExtraBold), 900 (Black)~~ — je regulär + kursiv
+
+> **Gewichts-Regel:** Der fetteste verwendete Schnitt ist **700 (Bold)**. Weight 800 und 900 werden nicht eingesetzt.
 
 **Roboto Condensed:** 100–700 vollständig, mit Kursivvarianten
 
@@ -187,7 +189,7 @@ thekey.  ACADEMY
 
 | Klasse | Bedeutung |
 |---|---|
-| `h1` / `.tk-h1` | 48px, Weight 900, Tight, Brand-Farbe |
+| `h1` / `.tk-h1` | 48px, Weight 700, Tight, Brand-Farbe |
 | `h2` / `.tk-h2` | 36px, Weight 700, Snug, Brand-Farbe |
 | `h3` / `.tk-h3` | 28px, Weight 700, Snug, fg-1 |
 | `h4` / `.tk-h4` | 22px, Weight 700, Snug, fg-1 |
@@ -260,7 +262,7 @@ Nur äußere Schatten — keine Inset-Schatten, kein Purple-Tint im Ruhezustand.
 
 - Form: immer `--radius-pill` (999px)
 - **Primär:** `--bg-brand` (#291371), weißer Text, leichtes Abdunkeln (~8%) beim Hover
-- **Promo-CTA:** `--tk-green-100` (#1bc699), dunkler Text — nur bei High-Intent in Promo-Kontext
+- **Promo-CTA:** Hintergrund `--tk-shade-0` (#ffffff), Text `--tk-brand-900` (#291371), `border-radius: 999px` — nur bei High-Intent in Promo-Kontext. Weiße Füllung hebt den Button klar vom lila Promo-Hintergrund ab. Hover: `--tk-brand-100` (#e6e5ef). **Wichtig:** Farben als Inline-Style setzen, nicht via CSS-Klasse — externe Stylesheets können `background` auf dem Promo-Strip überschreiben und den Button unsichtbar machen.
 - **Hover:** Cursor pointer + ~8% dunkler
 - **Press:** gleiche Farbe, 96% Skalierung, kein Schatten
 
@@ -412,3 +414,179 @@ fonts/
 3. **Logo-SVGs** wurden repariert (Klassen zu expliziten `fill`-Attributen konvertiert). Für saubere SVGs bitte neu aus Figma/Illustrator exportieren.
 4. **B2B-Oberfläche** (`Unternehmen`) ist in diesem Kit nicht abgedeckt — nur die Consumer-Academy-Homepage diente als Referenz.
 5. **Keine Figma-URL oder Codebase** wurde übergeben — alles wurde aus Screenshots + Logotype-SVGs rekonstruiert.
+
+
+---
+
+## Mobile App — Design-Erweiterungen
+
+> Erarbeitet im Rahmen eines UX-Redesigns der iOS/Android-App (Mai 2026). Referenz-Screens: Home-Bereich und Discovery-Bereich.
+
+---
+
+### App-Shell & Navigation
+
+#### Tab-Bar (Bottom Navigation)
+
+- **5 Slots:** Home · Entdecken · Notizen · Nachrichten · Profil
+- **Active-Indikator:** kurzer Balken (28px × 3px, `--tk-brand-700`, `border-radius: 0 0 3px 3px`) oben an der aktiven Tab-Item — kein Farbfill der gesamten Fläche
+- **Aktive Icons & Labels:** `--tk-brand-900`
+- **Inaktive Icons & Labels:** `--tk-shade-200` — bewusst zurückhaltend, lässt aktiven Tab klar hervorstechen
+- **Profilslot:** Gradient-Avatar-Ring statt Icon (Initialen, `linear-gradient(135deg, #5327e6, #1bc699)`), mit dünnem Brand-Border wenn aktiv
+- **Notification-Dot:** 7px Kreis, `--tk-error` (#ea561c), weißer 1.5px Rand — positioniert absolut oben rechts am Icon
+- **Hintergrund:** `--tk-shade-0`, Border-Top `0.5px solid --tk-shade-100`
+- **Padding:** `10px` oben, `22px` unten (Safe-Area-Puffer für Home-Indicator)
+- **Kein Emoji-Einsatz** in der Tab-Bar — ausschließlich Lucide/Tabler Outline-Icons
+
+#### Top-Nav-Bar (Mobile)
+
+- **Layout:** Greeting-Text links · Wordmark zentriert · Support-Orb rechts
+- Support-Orb: 34px Kreis, Brand-Gradient, weißes Message-Icon
+- Höhe: ~54px inkl. Statusbar-Puffer
+- Hintergrund: `--tk-shade-0`, Border-Bottom `0.5px solid --tk-shade-100`
+
+---
+
+### Home-Screen — Komponentenaufbau
+
+#### 1. Hero-Greeting-Card
+
+- Hintergrund: `--tk-gradient-brand` (135deg, `#3b22c0 → #5327e6 → #2a9eb8 → #1bc699`)
+- Radius: `--radius-lg` (20px)
+- Padding: 18px
+- Inhalt: Avatar-Kreis (40px, semitransparent weiß) · Name · XP-Zahl rechts
+- Level-Badge: Pill mit 15% weißem Alpha-Hintergrund, Roboto 10px Bold
+- Fortschrittsbalken: 4px hoch, weiß-transparenter Track, `--tk-green-100` Fill
+- Subtile Deko-Ellipse: absolut positioniert, oben rechts, `rgba(255,255,255,0.06)`
+
+#### 2. Streak-Banner
+
+- Hintergrund: `linear-gradient(135deg, #4630d0, #2a9eb8, #1bc699)`
+- Radius: `--radius-lg`
+- Layout: Text-Block links (Titel 12px Bold, Subtitel 10px) · Tages-Dots rechts
+- **Tages-Dots:** 7 Kreise à 28px — Heute: weißer Kreis, Brand-Violett-Text · Folgetage: 20% weißes Alpha, weißer Text, 1px Border `rgba(255,255,255,0.3)`
+- Kein separates Streak-Badge — der aktuelle Tag ist der visuelle Anker
+
+#### 3. Section-Header
+
+- `font-size: 13px` (bewusst kleiner als Seitenebene-Headlines)
+- `font-weight: 700`
+- `padding-top: 8px` — Luft nach oben für klare visuelle Trennung
+- Sekundärer Link (`sec-link`): 11px, `--tk-green-100`, 500 Weight
+- **Kein** großes 15–16px-Heading — Section-Labels sind Orientierungshilfen, keine Seitenüberschriften
+
+#### 4. Kurs-Karten (horizontal)
+
+- Hintergrund: `--tk-shade-0`, Radius: `--radius-lg`, Border: `0.5px solid --tk-shade-100`
+- Layout: Thumbnail 80px × 78px links · Info-Block rechts
+- **Thumbnail:** kategoriespezifischer Soft-Gradient-Hintergrund + Emoji/Bild-Placeholder; IHK-Badge absolut unten links (Brand-Violett, 9px Bold)
+- **Chip:** Pill, 9px, 600 Weight — Farben nach Kategorie (siehe Kategorie-Farbzuordnung)
+- **Kursname:** 12px Bold, `--tk-shade-700`, line-height 1.3
+- **Footer:** `border-top: 0.5px solid --tk-shade-100`, Padding 7px 10px — Status-Label links · Fortschrittsring + Prozent rechts
+- **Fortschrittsring:** SVG, 18px, `--tk-shade-100` Track, `--tk-green-100` Fill, stroke-linecap round
+
+#### 5. News-Cards
+
+- Horizontaler Scroll-Container, `gap: 12px`, kein Scrollbar
+- Card: 200px breit, Radius `--radius-lg`, `--shadow-sm`
+- Bild-Block: 88–100px hoch, kategoriespezifischer Gradient-Placeholder
+- Body: Datum 10px `--tk-shade-400` · Titel 13px Bold · Excerpt 11px `--tk-shade-500`
+
+---
+
+### Discovery-Screen — Komponentenaufbau
+
+#### 1. Suchleiste
+
+- Pill-Form (`--radius-pill`), Padding `10px 16px`
+- Hintergrund: `--tk-shade-0`, Border: `0.5px solid --tk-shade-200`
+- Such-Icon links (Tabler `ti-search`, 15px, `--tk-shade-400`) · Placeholder-Text 13px
+- Schatten: `--shadow-sm`
+
+#### 2. Filter-Chips (horizontal scrollbar)
+
+- Pill-Form, 11px 600 Weight
+- **Aktiv:** `--tk-brand-900` Hintergrund, weißer Text
+- **Inaktiv:** `--tk-shade-0` Hintergrund, `--tk-shade-500` Text, `0.5px solid --tk-shade-200` Border
+- Kein Scrollbar sichtbar (`scrollbar-width: none`)
+
+#### 3. Featured-Card
+
+- Hintergrund: `--tk-brand-900`
+- Radius: `--radius-lg`, Padding: 16–18px
+- Layout: Icon/Emoji 34–38px links · Content-Block rechts
+- NEU-Badge: `--tk-green-100` Hintergrund, `--tk-brand-900` Text, 9px Bold Pill
+- Titel: 13–15px Bold, weiß · Meta: 10–11px, 65% Opacity
+
+#### 4. Kategorie-Raster
+
+- 2-spaltig, `gap: 8px`
+- Card: `--tk-shade-0`, Radius `--radius-md` (14px), `0.5px solid --tk-shade-100`, `--shadow-sm`
+- Inhalt: Emoji-Icon 22px · Name 11px Bold · Anzahl 10px `--tk-shade-400`
+- Farbbalken unten: 3px, Radius 2px — Farbe je Kategorie (s. u.)
+
+---
+
+### Kategorie-Farbzuordnung (Chips & Balken)
+
+| Kategorie | Chip-Hintergrund | Chip-Text | Balken-Gradient |
+|---|---|---|---|
+| Führung & Transformation | `#e0edff` | `#0C447C` | `#5327e6 → #7270cf` |
+| KI & digitale Kompetenzen | `#d4f6e6` | `#079e83` | `#1bc699 → #4ed4ad` |
+| Selbstführung & Resilienz | `#fce8f0` | `#993556` | `#dc99ef → #e8bdf5` |
+| Marketing & Vertrieb | `#fdf3d9` | `#633806` | `#e0a827 → #f0c960` |
+| Menschen & Wirkung | `#e0edff` | `#0C447C` | `#2794fe → #6bb8ff` |
+| Prozesse & Qualität | `#fce8f0` | `#993556` | `#ea561c → #f08060` |
+
+---
+
+### Mobile Spacing-Ergänzungen
+
+| Kontext | Wert |
+|---|---|
+| Scroll-Area Padding (horizontal) | `14px` |
+| Scroll-Area Padding (oben) | `14px` |
+| Gap zwischen Scroll-Elementen | `10px` |
+| Section-Header Padding-Top | `8px` |
+| Tab-Bar Padding-Top | `10px` |
+| Tab-Bar Padding-Bottom (Safe Area) | `22px` |
+| Kurs-Karten-Thumbnail-Breite | `80px` |
+| Kurs-Karten-Thumbnail-Höhe | `78px` |
+
+---
+
+### Desktop App — Design-Erweiterungen
+
+> Referenz: bestehende Webapp + Redesign-Session Mai 2026.
+
+#### Sidebar (Desktop)
+
+- Breite: **80px** — Icon-only, kein Label-Text außer bei aktivem Tab
+- Hintergrund: `--tk-brand-900` (#291371)
+- Logo-Block: 40px Gradient-Key-Square (`--tk-gradient-brand`), `border-radius: 10px`
+- Nav-Items: 56px × 52px, `border-radius: --radius-md`
+  - Aktiv: `rgba(255,255,255,0.12)` Hintergrund, weißes Icon + Label
+  - Inaktiv: `rgba(255,255,255,0.45)` Icon, `rgba(255,255,255,0.4)` Label
+- Labels: 9px, 500 Weight — sichtbar unter dem Icon
+- Avatar unten: 36px Kreis, `--tk-shade-500` Hintergrund, `border: 2px solid rgba(255,255,255,0.15)`
+
+#### Top-Bar (Desktop)
+
+- Höhe: 52px
+- **Wordmark zentriert** (nicht links) — konsistent mit Mobile
+- Rechts: XP-Coin-Pille (Gold `#fff8e6`/`#e0a827`, 12px Bold) · Support-Orb (Gradient) · Warenkorb-Icon
+- Hintergrund: `--tk-shade-0`, Border-Bottom `0.5px solid --tk-shade-100`
+
+#### Kurs-Karten (Desktop, 3-spaltig)
+
+- Radius: `--radius-lg`, Border: `0.5px solid --tk-shade-100`, `--shadow-sm`
+- Thumbnail-Block: 110px hoch, Kategorie-Gradient + zentriertes Emoji/Bild
+- IHK-Badge: absolut unten links, `--tk-brand-700`, 9px Bold, `border-radius: 4px`
+- Chip + Titel im Body-Bereich
+- Footer: identisch zur Mobile-Variante
+
+#### Section-Header (Desktop)
+
+- `font-size: 17px`, `font-weight: 700`
+- Margin-Bottom: `12px`
+- Sekundärer Link: 13px, `--tk-green-120`, unterstrichen (`text-underline-offset: 2px`)
